@@ -8,11 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: [
-    "http://localhost:5500",
-    "https://dev-journey-pos.vercel.app",
-    "https://api-pos-production-751a.up.railway.app"
-  ],
+  origin: "*",
   credentials: true
 }));
 app.use(bodyParser.json());
