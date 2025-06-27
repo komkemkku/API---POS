@@ -8,11 +8,13 @@ const router = express.Router();
 // POST /api/login
 router.post("/", async (req, res) => {
   const { username, password } = req.body;
+  console.log("Login request:", username);
   try {
     const result = await db.query(
       "SELECT * FROM users WHERE username = $1 AND is_active = TRUE",
       [username]
     );
+    console.log("DB result:", result.rows);
     if (result.rows.length === 0) {
       return res
         .status(401)
@@ -20,6 +22,7 @@ router.post("/", async (req, res) => {
     }
     const user = result.rows[0];
     const match = await bcrypt.compare(password, user.password_hash);
+    console.log("Password match:", match);
     if (!match) {
       return res
         .status(401)
