@@ -11,7 +11,7 @@ app.use(cors({
   origin: [
     "http://localhost:5500",
     "https://dev-journey-pos.vercel.app",
-    "https://devjourneypos-production.up.railway.app"
+    "https://api-pos-production-751a.up.railway.app"
   ],
   credentials: true
 }));
