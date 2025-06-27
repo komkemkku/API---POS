@@ -66,6 +66,11 @@ app.get("/api/profile", (req, res) => {
   }
 });
 
+// เพิ่ม route สำหรับหน้าแรก
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Dev Journey POS API" });
+});
+
 // Handle 404
 app.use((req, res, next) => {
   res.status(404).json({ message: "ไม่พบเส้นทางนี้ (API Not Found)" });
